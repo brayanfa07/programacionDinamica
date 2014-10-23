@@ -91,4 +91,79 @@ class Fibonacci{
 }
 
 ```
+__
+
+#####Algoritmo del cambio de monedas
+
+___
+
+
+```
+public class calculoMonedas {
+    Moneda moneda1;
+    Moneda moneda2;
+    Moneda moneda3;
+
+
+    calculoMonedas(){
+        moneda1 = new Moneda(7, 1);
+        moneda2 = new Moneda(4, 1);
+        moneda3 = new Moneda(3, 1);
+    }
+
+
+    int calcularMonedas(int monto, Moneda moneda1, Moneda moneda2, Moneda moneda3){
+        if ((moneda1.getValor() * moneda1.getCantidad()) == monto){
+            return moneda1.getCantidad() + moneda1.getValor();
+        }
+        else if (moneda1.getValor() * moneda1.getCantidad() < monto){
+            moneda1.setCantidad(moneda1.getCantidad() + 1);
+        }
+        else if (moneda1.getValor() * moneda1.getCantidad() > monto){
+            return calcularMonedas(monto, moneda1.setCantidad(moneda1.getCantidad() - 1); moneda2.)
+
+        }
+
+
+
+
+        return 0;
+    }
+
+}
+
+
+
+class Moneda{
+    int valor;
+    int cantidad;
+
+
+    Moneda(int valor1, int valor2){
+        this.valor = valor1;
+        this.cantidad = valor2;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+}
+
+```
+
+
+
+
 
