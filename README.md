@@ -4,6 +4,7 @@
 #####201157035 Brayan Fajardo Alvarado - Fecha: 23 de octubre de 2014
 #####TAREA: Programación dinámica
 ___________
-
+______________
+__________
 #####Programación dinámica
 
