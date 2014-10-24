@@ -91,14 +91,13 @@ class Fibonacci{
 }
 
 ```
-__
+
 
 #####Algoritmo del cambio de monedas
 
 ___
 
 El algoritmo de cambio de monedas busca determinar la cantidad máxima de monedas que se pueden obtener con el valor más alto posible. La complejidad de este algoritmo se resumen en un tiempo O(n*monto), tomando a monto como la cantidad de vuelto por retornar.
-______
 
 ```
 public class calculoMonedas {
