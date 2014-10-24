@@ -97,6 +97,8 @@ __
 
 ___
 
+El algoritmo de cambio de monedas busca determinar la cantidad máxima de monedas que se pueden obtener con el valor más alto posible. La complejidad de este algoritmo se resumen en un tiempo O(n*monto), tomando a monto como la cantidad de vuelto por retornar.
+______
 
 ```
 public class calculoMonedas {
@@ -108,47 +110,66 @@ public class calculoMonedas {
 
 
     calculoMonedas(){
-        moneda1 = new Moneda(7, 1);
-        moneda2 = new Moneda(4, 1);
-        moneda3 = new Moneda(3, 1);
+        moneda1 = new Moneda(7, 0);
+        moneda2 = new Moneda(4, 0);
+        moneda3 = new Moneda(3, 0);
         acumulado = 0;
-        monedaActual = 1;
+        monedaActual = 0;
     }
 
 
     int calcularMonedas(int monto){
 
-        Moneda monedas[] = {this.moneda1,this.moneda2, this.moneda3};
-        for (int i = 0; i < monto; i++) {
-            if ((((monedas[this.monedaActual].getCantidad() + 1) * monedas[this.monedaActual].getValor()) + acumulado) < monto) {
+        Moneda [] monedas = new Moneda[3];
+        monedas[0] = this.moneda1;
+        monedas[1] = this.moneda2;
+        monedas[2] = this.moneda3;
+
+        for (int i = 0; i < monto ; i++) {
+            if (((monedas[this.monedaActual].getValor()) + acumulado) < monto) {
                 monedas[this.monedaActual].setCantidad(monedas[this.monedaActual].getCantidad() + 1);
                 this.acumulado = acumulado + monedas[monedaActual].getValor();
-            }
-            else if ((((monedas[this.monedaActual].getCantidad() + 1) * monedas[this.monedaActual].getValor()) + acumulado) > monto) {
-                this.monedaActual = this.monedaActual + 1;
-            }
-            else{
-                if ((((monedas[this.monedaActual].getCantidad() + 1) * monedas[this.monedaActual].getValor()) + acumulado) == monto) {
-                   System.out.println("Su cambio son " + this.moneda1.getCantidad() + " moneda(s) de " + this.moneda1.getValor() +
-                            " , " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor() + " y " +
+            } else if (((monedas[this.monedaActual].getValor()) + acumulado) > monto) {
+                if((this.monedaActual + 1) == 3){
+                    System.out.println("Su cambio son " + this.moneda1.getCantidad() + " moneda(s) de " + this.moneda1.getValor() +
+                            ", " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor()  + " y " +
                             this.moneda3.getCantidad() + " moneda(s) de " + this.moneda3.getValor());
                     return 0;
+                }
+                else{
+                    this.monedaActual = monedaActual + 1;
+                }
 
+                this.monedaActual = this.monedaActual + 1;
+            }
+            else if (((monedas[this.monedaActual].getValor()) + acumulado) == monto){
+                monedas[this.monedaActual].setCantidad(monedas[this.monedaActual].getCantidad() + 1);
+                this.acumulado = acumulado + monedas[monedaActual].getValor();
+                System.out.println("Su cambio son " + this.moneda1.getCantidad() + " moneda(s) de " + this.moneda1.getValor() +
+                        ", " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor() + " y " +
+                        this.moneda3.getCantidad() + " moneda(s) de " + this.moneda3.getValor());
+                return 0;
+            }
+            else {
+                if (acumulado == monto) {
+                    System.out.println("Su cambio son " + this.moneda1.getCantidad() + " moneda(s) de " + this.moneda1.getValor() +
+                            ", " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor() + " y " +
+                            this.moneda3.getCantidad() + " moneda(s) de " + this.moneda3.getValor());
+                    return 0;
                 }
             }
         }
+
         System.out.println("Su cambio son " + this.moneda1.getCantidad() + " moneda(s) de " + this.moneda1.getValor() +
-                " , " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor()  + " y " +
+                ", " + this.moneda2.getCantidad() + " moneda(s) de " + this.moneda2.getValor()  + " y " +
                 this.moneda3.getCantidad() + " moneda(s) de " + this.moneda3.getValor());
         return 0;
-    }
-
+        }
 
     public static void main(String[] args) {
         calculoMonedas nuevo = new calculoMonedas();
-        nuevo.calcularMonedas(21);
+        nuevo.calcularMonedas(546);
     }
-
 }
 
 
