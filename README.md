@@ -9,7 +9,7 @@ __________
 #####Programación dinámica
 ____
 ____
-#####Algoritmo de Fibonacci
+#####1)Algoritmo de Fibonacci
 ____
 Este algoritmo consiste en ejecutar la sucesión de fibonacci para cierto número. Este tipo de ejercicio permite usar la programación dinámica ya que hace uso de las soluciones anteriores para la determinacion de fibobnacci de los números anteriores.
 Ejp: 1, 1, 2, 3, 5, 8, 13, 21, 34...
@@ -93,7 +93,7 @@ class Fibonacci{
 ```
 
 
-#####Algoritmo del cambio de monedas
+#####2)Algoritmo del cambio de monedas
 
 ___
 
