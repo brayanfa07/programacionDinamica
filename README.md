@@ -93,7 +93,7 @@ class Fibonacci{
 ```
 
 
-#####2) Algoritmo del cambio de monedas
+##### 2) Algoritmo del cambio de monedas
 
 ___
 
